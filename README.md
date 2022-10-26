@@ -84,20 +84,19 @@
   <tr>
     <td>CentOS(Master)</td>
     <td>
-     [storage.data](https://github.com/Sullen-ui/servionica_exam/blob/main/task1/storage.data)<br>
-     [haproxy.conf](https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy1.conf)
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy1.cfg">haproxy.cfg</a>
     </td>
     <td>
-     [keepalived.conf](https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived1.conf)<br>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived1.conf">keepalived.conf</a>
     </td>
   </tr>
   <tr>
     <td>CentOS(Slave)</td>
     <td>
-     [haproxy.conf](https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy2.conf)<br>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy2.cfg">haproxy.cfg</a>
     </td>
     <td>
-     [keepalived.conf](https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived2.conf)<br>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived2.conf">keepalived.conf</a>   
     </td>
   </tr>
 </table>
