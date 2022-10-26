@@ -26,3 +26,45 @@
   Запуск на CentOS 7
 </p>
 
+----------
+
+## Задание 2.1
+Создать 2 WEB сервера с выводом страницы «Hello Word! \n Server 1» (аналогично для второго Server 2). Сделать балансировку нагрузки (HA + keepalived), чтобы при обновлении страницы мы попадали на любой из WEB серверов(Для балансировки можно сделать 2 отдельных сервера, в сумме 4).
+Будет плюсом использование Docker.<br>
+Решение:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198004863-ed756ef3-ed69-4404-b5d7-4bda97089357.png?raw=true" alt="Sublime's custom image"/>
+</p>
+<br>
+### Подготовка ###<br>
+* Создание двух VM на дистрибутиве CentOS 7 (CentOS(Master),CentOS(Slave)) Со статичными IP. Создаём одну ВМ и средствами VirtualBox делаем клон.<br>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198009340-18fbe7f9-66a7-4def-b2d6-2d3100254ddd.png?raw=true" alt="Sublime's custom image"/>
+</p><br>
+* В Virtualbox создаем сеть и пробрасываем порты.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198009590-5a9e3937-3b5e-4048-8a87-7c03c80b77b2.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://user-images.githubusercontent.com/82956250/198009766-b17968d7-51ca-406a-a484-d071abc1e770.png?raw=true" alt="Sublime's custom image"/>
+</p><br>
+* Устанавливаем необходимое ПО
+
+     yum install epel-release
+     yum install docker haproxy keepalived
+     
+* Запустим контейнер nginx на обоих ВМ
+    
+     docker run -p 8080:80 nginx:stable-alpine --restart=always
+     # Добавим инфу в стартовые страницы index.html
+     docker exec -ti <container id> /bin/sh
+     >echo "<h1>Hello world! Server1-2" > /usr/share/nginx/html/index.html
+     >exit
+
+* Проверим работу контейнеров
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198018928-708c70f7-28f5-4d37-a97f-11b33b991ac1.png?raw=true" alt="Sublime's custom image"/>
+</p><br>
+
+
+
