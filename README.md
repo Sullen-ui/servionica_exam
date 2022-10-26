@@ -36,7 +36,7 @@
 Решение:
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/82956250/198004863-ed756ef3-ed69-4404-b5d7-4bda97089357.png?raw=true" alt="Sublime's custom image"/>
+  <img src="https://user-images.githubusercontent.com/82956250/198123427-65faee88-cddc-4d83-892d-937d0794f02d.png?raw=true" alt="Sublime's custom image"/>
 </p>
 <br>
  ### Подготовка ###<br>
@@ -55,18 +55,18 @@
 </p>
 
 * Устанавливаем необходимое ПО
-
-    ``yum install epel-release``
-    ``yum install docker haproxy keepalived``
-     
+```
+    yum install epel-release
+    yum install docker haproxy keepalived
+```     
 * Запустим контейнер nginx на обоих ВМ<br>
-
-    ``docker run -p 8080:80 nginx:stable-alpine --restart=always``<br>
-    ``#Добавим инфу в стартовые страницы index.html``<br>
-    ``docker exec -ti <container id> /bin/sh``<br>
-    ``>echo "Hello world! Server1-2" > /usr/share/nginx/html/index.html``<br>
-    ``>exit``
-
+```
+    docker run -p 8080:80 nginx:stable-alpine --restart=always
+    #Добавим инфу в стартовые страницы index.html
+    docker exec -ti <container id> /bin/sh
+    >echo "Hello world! Server1-2" > /usr/share/nginx/html/index.html
+    >exit
+```
 * Проверим работу контейнеров
 
 <p align="center">
@@ -101,5 +101,77 @@
   </tr>
 </table>
 
+* Запуск сервисов HAproxy, Keepalived( на всех ВМ)<br>
+
+  ```
+   # HAproxy <br>
+   systemctl enable haproxy <br>
+   systemctl start haproxy
+   
+   # Keepalived
+   # Включим поддержку VIP
+   echo "net.ipv4.ip_nonlocal_bind = 1" >> /etc/sysctl.conf
+   systemctl enable keepalived
+   systemctl start keepalived
+  
+  ```
+* Проверим статусы и работу сервисов.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198070521-d347e64f-5ead-4f46-a9d3-7390618bab41.png?raw=true" alt="Sublime's custom image"/>
+</p><br>
+  
+  Приоритет vrrp выше на centOS(Master), можем проверить на какой ноде и устройстве сейчас VIP ``10.0.2.100``
+  
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198073823-5cb6199e-11cf-4295-aa97-7237c6909387.png?raw=true" alt="Sublime's custom image"/>
+  </p><br>
+  
+* С главного хоста у нас проброшен порт в виртуальную сеть. Мы можем отправлять запрос на ``localhost:8083`` чтобы попасть на наш keepalived ``10.0.2.100``
+
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198075056-55716e2d-8eb9-4d73-b2e1-b454272b6c95.png?raw=true" alt="Sublime's custom image"/>
+  </p><br>
+  
+* Сэмулируем крах keepalived и HAproxy на ноде СentOS(Master)(см.схемку)
+
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198124260-84c0130b-f0b5-4975-8746-e17a4c4e6ad4.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+  Остановим эти сервисы 
 
 
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198124532-e3cf9796-4317-45c1-902e-78a76c495387.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+  Посмотрим на какой ноде VIP
+  
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198078253-37259634-2efc-472b-96bf-ee6b0403466d.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+  Пробуем снова отправлять запрос на Nginx'ы
+  
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198124767-a9935461-a6fc-473b-a520-4e6c3338ce6b.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+* Теперь cэмулируем крах keepalived и HAproxy на ноде СentOS(Slave)
+
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198125356-ebd3e980-90a7-4e37-b81e-324ed5bd493e.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+  Посмотрим на какой ноде VIP
+  
+  <p align="center">
+    <img src="https://user-images.githubusercontent.com/82956250/198125660-2950a6d9-6b89-46e4-8a64-aa3a6b5b154d.png" alt="Sublime's custom image"/>
+  </p><br>
+  
+  Пробуем снова отправлять запрос на Nginx'ы
+  
+    <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198125868-5cf10bff-1511-4249-9f00-c39bb444adc9.png" alt="Sublime's custom image"/>
+    </p><br>
