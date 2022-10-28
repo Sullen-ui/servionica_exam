@@ -175,3 +175,30 @@
     <p align="center">
       <img src="https://user-images.githubusercontent.com/82956250/198125868-5cf10bff-1511-4249-9f00-c39bb444adc9.png" alt="Sublime's custom image"/>
     </p><br>
+
+## Задание 2.2
+
+* Подготовил ВМ на базе Rocky Linux 9. 2 рабочие ноды + 1 Asnible Master. Развернул стенд по схеме из задания 2.1. Использовал роли, доп. коллекции, шаблонизатор.
+
+    <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198626709-4798c98c-ea13-42c8-a7aa-a9b71973c298.png" alt="Sublime's custom image"/>
+    </p><br>
+ 
+* Структура проекта Ansible
+
+    <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198627775-8333c8a1-7007-4ffb-a984-317f5abe8fde.png" alt="Sublime's custom image"/>
+    </p><br>
+
+* Запуск плейбука
+
+    <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198623670-a30fe809-0175-409a-9b1e-289afe4b1165.png" alt="Sublime's custom image"/>
+    </p><br>
+ 
+ * Проверка. Результаты запросов и тестов идентичны заданию 2.1
+ 
+  align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198631781-c41e2f2f-9cb4-479b-bcaf-8dd7fb803ec1.png" alt="Sublime's custom image"/>
+    </p><br>
+    
