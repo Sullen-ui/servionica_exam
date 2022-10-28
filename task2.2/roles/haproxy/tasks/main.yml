@@ -1,0 +1,18 @@
+- name: Install HAproxy packages
+  dnf:
+     name: haproxy
+     state: present
+     update_cache: True
+
+- name: Copy config files
+  template: 
+     src: templates/haproxy.cfg.j2
+     dest: /etc/haproxy/haproxy.cfg
+     mode: '0640'
+     owner: root 
+
+- name: Enable and restart HAproxy service 
+  service:
+   name: haproxy
+   enabled: yes
+   state: restarted

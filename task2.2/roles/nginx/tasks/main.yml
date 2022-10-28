@@ -1,0 +1,20 @@
+- name: Start Nginx container on {{ inventory_hostname }}
+  community.docker.docker_container:
+    name: nginx
+    image: nginx:stable-alpine
+    restart_policy: always
+    published_ports: 8080:80
+    detach: yes
+
+- name: Execute command to container nginx on {{ inventory_hostname }}
+  community.docker.docker_container_exec:
+    container: nginx
+    command: /bin/sh -c "echo 'Hello World! Server1' > /usr/share/nginx/html/index.html" 
+  when: "'centosmaster' in inventory_hostname"
+
+- name: Execute command to container nginx on {{ inventory_hostname }}
+  community.docker.docker_container_exec:
+    container: nginx
+    command: /bin/sh -c "echo 'Hello World! Server2' > /usr/share/nginx/html/index.html"
+  when: "'centoslave' in inventory_hostname"
+

@@ -1,0 +1,3 @@
+[webservers]
+centosmaster ansible_host=10.0.2.15
+centoslave ansible_host=10.0.2.16

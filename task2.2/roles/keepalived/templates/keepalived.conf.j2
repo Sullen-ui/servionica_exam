@@ -1,0 +1,20 @@
+vrrp_script chk_haproxy {
+  script "killall -0 haproxy" # check the haproxy process
+  interval 2                  # every 2 seconds
+  weight 2                    # add 2 points if OK
+}
+ 
+vrrp_instance VI_1 {
+  interface enp0s3           # interface to monitor
+  state {{ ka_state }}                # MASTER on CentOS(Master), BACKUP on CentOS(Slave)
+  virtual_router_id {{ vrouter_id }}
+  priority {{ ka_priority }}                # 101 on CentOS(Master), 100 on CentOS(Slave)
+ 
+  virtual_ipaddress {
+    {{ ka_vip }}          # virtual ip address
+  }
+ 
+  track_script {
+    chk_haproxy
+  }
+}
