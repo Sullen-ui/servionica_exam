@@ -198,7 +198,7 @@
  
  * Проверка. Результаты запросов и тестов идентичны заданию 2.1
  
-  align="center">
+    <p align="center">
       <img src="https://user-images.githubusercontent.com/82956250/198631781-c41e2f2f-9cb4-479b-bcaf-8dd7fb803ec1.png" alt="Sublime's custom image"/>
     </p><br>
     
