@@ -1,0 +1,28 @@
+<html>
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Start</title>
+ </head>
+ <body>
+    <p>Т.к. изначально данных нет, необходимо добавить запись</p>
+    <h3>Добавление записи</h3>
+    
+    <p>curl -i -H "Content-Type: application/json" -X POST -d '{"key": "value"}' http://localhost:5000/api/v1/storage/json/write</p>
+    
+    <h3>Получить все записи</h3>
+    
+    <p>http://localhost:5000/api/v1/storage/json/all</p>
+    
+    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/all</p>
+    
+    <h3>Получение записи по ключу</h3>
+    
+    <p>http://localhost:5000/api/v1/storage/json/key=value</p>
+    
+    
+    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/key=key</p>
+ </body>
+</html>
+
+
+
