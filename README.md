@@ -15,8 +15,8 @@
 * В домашней директорий пользователя создать папку task; реализовать собственное key-values хранилище на Python. Данные будут сохраняться в файле storage.data(в формате JSON, можно использовать библиотеку tempfile, для хранения данных во временных файлах). Добавление новых данных в хранилище и получение текущих значений осуществляется с помощью утилиты командной строки storage.py.Обратите внимание, что значения по одному ключу не перезаписываются, а добавляются к уже сохраненным. Другими словами - по одному ключу могут храниться несколько значений. При выводе на печать, значения выводятся в порядке их добавления в хранилище (Пример ввода "test_value,test_value2,test_value3" ). Формат вывода на печать для нескольких значений через запятую. Если значений по ключу не было найдено, выведите пустую строку или None. Сделать обработку исключений, если они будут возникать при тестировании. Скрипт должен работать в разных ОС.
 
 Ссылки на файлы:<br>
-[storage.py](https://github.com/Sullen-ui/servionica_exam/blob/main/task1/main.py)<br>
-[storage.data](https://github.com/Sullen-ui/servionica_exam/blob/main/task1/storage.data)<br>
+[storage.py](https://github.com/Sullen-ui/servionica_exam/blob/main/task1.1/main.py)<br>
+[storage.data](https://github.com/Sullen-ui/servionica_exam/blob/main/task1.1/storage.data)<br>
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/82956250/197357436-c567eb58-2372-43c5-b496-1f74794a3574.png?raw=true" alt="Sublime's custom image"/>
@@ -84,19 +84,19 @@
   <tr>
     <td>CentOS(Master)</td>
     <td>
-      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy1.cfg">haproxy.cfg</a>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2.1/haproxy/haproxy1.cfg">haproxy.cfg</a>
     </td>
     <td>
-      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived1.conf">keepalived.conf</a>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2.1/keepalived/keepalived1.conf">keepalived.conf</a>
     </td>
   </tr>
   <tr>
     <td>CentOS(Slave)</td>
     <td>
-      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/haproxy/haproxy2.cfg">haproxy.cfg</a>
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2.1/haproxy/haproxy2.cfg">haproxy.cfg</a>
     </td>
     <td>
-      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2/keepalived/keepalived2.conf">keepalived.conf</a>   
+      <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task2.1/keepalived/keepalived2.conf">keepalived.conf</a>   
     </td>
   </tr>
 </table>
