@@ -61,9 +61,9 @@
         <img src="https://user-images.githubusercontent.com/82956250/198867020-0f6b904b-6ea7-46f2-a3ca-b3944c0a4596.png?raw=true" alt="Sublime's custom image"/>
       </p>
 
- * Написал докерфайлы под flask и nginx, сборка через docker-compose
+ * Написал докерфайлы под flask и nginx, сборка через docker-compose<br>
  <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task1.2/docker-compose">Ссылка на docker-compose</a>
- ''' docker-compose up --build -d '''
+ ``` docker-compose up --build -d ```
 ---
 ## Задание 2.1
 Создать 2 WEB сервера с выводом страницы «Hello Word! \n Server 1» (аналогично для второго Server 2). Сделать балансировку нагрузки (HA + keepalived), чтобы при обновлении страницы мы попадали на любой из WEB серверов(Для балансировки можно сделать 2 отдельных сервера, в сумме 4).
