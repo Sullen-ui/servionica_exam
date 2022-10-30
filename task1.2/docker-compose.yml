@@ -7,7 +7,7 @@ services:
     restart: always
     build: ./app
     ports:
-      - "8000:8000"
+      - "8989:8000"
     command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:server
   
   nginx:
