@@ -29,7 +29,42 @@
 </p>
 
 ----------
+## Задание 1.2
+<p>Написать сервис API на Python к key-values хранилищу из задания 1. Самый простой фреймворк для реализации flask и дополнительный модуль flaskRESTful. Хранить данные можно так же во временных файлах в файле storage.data(в формате JSON, можно использовать библиотеку tempfile). Сервис должен уметь отвечать на запросы POST и GET. Требования к выводу можно взять из задания 1. Ниже в скриншотах есть демонстрация основных запросов и их вывода. На главной странице сервиса ‘/’ сделать описание возможностей сервиса API.Из сервиса сделать новый Docker Image и запустит контейнер, данные хранить внутри контейнера, при перезапуске будут отчищается. </p><br>
 
+<p>Т.к. изначально данных нет, необходимо добавить запись</p>
+    <h3>Добавление записи</h3>
+    
+    <p>curl -i -H "Content-Type: application/json" -X POST -d "{"\key\": \"value\"}" http://localhost:5000/api/v1/storage/json/write</p>
+    
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/82956250/198864048-35c55c03-7c4a-4b7e-bfd4-2cc257e3d88c.png?raw=true" alt="Sublime's custom image"/>
+</p>
+    
+    <h3>Получить все записи</h3>
+    
+    <p>http://localhost:5000/api/v1/storage/json/all</p>
+    
+    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/all</p>
+   
+      <p align="center">
+        <img src="https://user-images.githubusercontent.com/82956250/198866943-d540f6fe-d6fb-49e5-a42c-8d1c50105e19.png?raw=true" alt="Sublime's custom image"/>
+      </p>
+      
+    <h3>Получение записи по ключу</h3>
+    
+    <p>http://localhost:5000/api/v1/storage/json/key=value</p>
+    
+    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/key=key</p>
+    
+      <p align="center">
+        <img src="https://user-images.githubusercontent.com/82956250/198867020-0f6b904b-6ea7-46f2-a3ca-b3944c0a4596.png?raw=true" alt="Sublime's custom image"/>
+      </p>
+
+ * Написал докерфайлы под flask и nginx, сборка через docker-compose
+ <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task1.2/docker-compose">Ссылка на docker-compose</a>
+ ''' docker-compose up --build -d '''
+---
 ## Задание 2.1
 Создать 2 WEB сервера с выводом страницы «Hello Word! \n Server 1» (аналогично для второго Server 2). Сделать балансировку нагрузки (HA + keepalived), чтобы при обновлении страницы мы попадали на любой из WEB серверов(Для балансировки можно сделать 2 отдельных сервера, в сумме 4).
 Будет плюсом использование Docker.<br>
@@ -175,9 +210,11 @@
     <p align="center">
       <img src="https://user-images.githubusercontent.com/82956250/198125868-5cf10bff-1511-4249-9f00-c39bb444adc9.png" alt="Sublime's custom image"/>
     </p><br>
+    
+---
 
 ## Задание 2.2
-<p>Написать сервис API на Python к key-values хранилищу из задания 1. Самый простой фреймворк для реализации flask и дополнительный модуль flaskRESTful. Хранить данные можно так же во временных файлах в файле storage.data(в формате JSON, можно использовать библиотеку tempfile). Сервис должен уметь отвечать на запросы POST и GET. Требования к выводу можно взять из задания 1. Ниже в скриншотах есть демонстрация основных запросов и их вывода. На главной странице сервиса ‘/’ сделать описание возможностей сервиса API.</p><br>
+<p>Написать роль на Ansible по развёртыванию стенда из Задание 2.1. Можно написать 1 большую роль, либо 3 роли и потом вызвать их поочёрдно.Конфиги nginx, HA proxy, keepalived оформить, используя шаблоны Jinja2(язык шаблонов).</p><br>
 
 * Подготовил ВМ на базе Rocky Linux 9. 2 рабочие ноды + 1 Asnible Master. Развернул стенд по схеме из задания 2.1. Использовал роли, доп. коллекции, шаблонизатор.
 
