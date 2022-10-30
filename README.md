@@ -35,31 +35,31 @@
 <p>Т.к. изначально данных нет, необходимо добавить запись</p>
     <h3>Добавление записи</h3>
     
-    <p>curl -i -H "Content-Type: application/json" -X POST -d "{"\key\": \"value\"}" http://localhost:5000/api/v1/storage/json/write</p>
+<p>curl -i -H "Content-Type: application/json" -X POST -d "{"\key\": \"value\"}" http://localhost:5000/api/v1/storage/json/write</p>
     
 <p align="center">
   <img src="https://user-images.githubusercontent.com/82956250/198864048-35c55c03-7c4a-4b7e-bfd4-2cc257e3d88c.png?raw=true" alt="Sublime's custom image"/>
 </p>
     
-    <h3>Получить все записи</h3>
+   <h3>Получить все записи</h3>
     
-    <p>http://localhost:5000/api/v1/storage/json/all</p>
+   <p>http://localhost:5000/api/v1/storage/json/all</p>
     
-    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/all</p>
+   <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/all</p>
    
-      <p align="center">
-        <img src="https://user-images.githubusercontent.com/82956250/198866943-d540f6fe-d6fb-49e5-a42c-8d1c50105e19.png?raw=true" alt="Sublime's custom image"/>
-      </p>
+   <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198866943-d540f6fe-d6fb-49e5-a42c-8d1c50105e19.png?raw=true" alt="Sublime's custom image"/>
+    </p>
       
-    <h3>Получение записи по ключу</h3>
+   <h3>Получение записи по ключу</h3>
     
-    <p>http://localhost:5000/api/v1/storage/json/key=value</p>
+   <p>http://localhost:5000/api/v1/storage/json/key=value</p>
     
-    <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/key=key</p>
+   <p>curl -i -X GET http://localhost:5000/api/v1/storage/json/key=key</p>
     
-      <p align="center">
-        <img src="https://user-images.githubusercontent.com/82956250/198867020-0f6b904b-6ea7-46f2-a3ca-b3944c0a4596.png?raw=true" alt="Sublime's custom image"/>
-      </p>
+   <p align="center">
+      <img src="https://user-images.githubusercontent.com/82956250/198867020-0f6b904b-6ea7-46f2-a3ca-b3944c0a4596.png?raw=true" alt="Sublime's custom image"/>
+    </p>
 
  * Написал докерфайлы под flask и nginx, сборка через docker-compose<br>
  <a href="https://github.com/Sullen-ui/servionica_exam/blob/main/task1.2/docker-compose.yml">Ссылка на docker-compose</a>
